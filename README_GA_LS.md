@@ -385,17 +385,6 @@ Slightly better than O(n³) due to early stopping and efficient path caching.
 
 5. **Practical Viability**: For real-world applications with 50+ cities, dense graphs, and quadratic cost penalties, this approach delivers significant cost savings (10-20%)
 
-## Performance Summary
-
-Typical improvements over baseline:
-
-| Problem Type | Expected Improvement |
-|--------------|---------------------|
-| Dense, β=1 | 20-40% |
-| Dense, β=2 | 10-25% |
-| Sparse, β=1 | 15-30% |
-| Sparse, β=2 | 0-10% (often near-optimal baseline) |
-
 ## Dependencies
 
 ```
