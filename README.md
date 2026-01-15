@@ -310,5 +310,37 @@ matplotlib>=3.4.0
 
 
 ## Author
-
+Rajath Gopinath Menon
 Student ID: s337798
+
+## Development Process and AI Assistance Declaration
+
+This project represents my own work and understanding of the Gold Collector optimization problem. The algorithmic approach, solution design, and overall strategy are based on my own ideas and analysis of the problem requirements.
+
+### Use of AI Assistance
+
+During the development of this project, I utilized AI assistants (Claude and Gemini) in the following ways:
+
+- **Brainstorming and Discussion**: I engaged in discussions with Claude and Gemini to explore different algorithmic approaches, validate my ideas, and understand trade-offs between various optimization strategies. I chose these strategies on discussion with Claude AI.
+- Split Algorithm approach
+- Design of the two-variant solver architecture (standard vs. scalable)
+- Key optimizations (lazy pathfinding, windowed DP search, max_trip_size heuristic)
+
+- **Code Generation and Formatting**: As I am still developing proficiency in Python, I used Claude and Gemini to help generate and format portions of the code implementation. This includes:
+  - Python syntax and best practices
+  - Code structure and organization
+  - Debugging and error resolution
+
+### Original Contributions
+
+The following aspects are entirely my own work:
+- Problem analysis and solution strategy
+- Choice of Genetic Algorithm
+- Choice of Local Search Refinement
+- Experimental design and parameter selection
+- Analysis and interpretation of results
+
+### Important Note
+
+While I received assistance in code generation and formatting, I have thoroughly reviewed, understood, and tested all code in this project. The implementation reflects my understanding of the algorithms and my design decisions for solving the Gold Collector problem. I have not simply copied code but rather collaborated with AI tools to learn and implement my solution ideas. 
+
