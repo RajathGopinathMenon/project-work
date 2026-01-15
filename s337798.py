@@ -1,5 +1,5 @@
 from src.problem import GoldProblem
-from src.GA_solver import GeneticSolver
+from src.GA_solver_A import GeneticSolver
 from tqdm import tqdm
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -178,7 +178,7 @@ def main():
     print("="*80)
     
     # Define city counts to test
-    city_counts = [20, 50, 100]
+    city_counts = [20, 50, 100, 1000]
     
     # Define parameter combinations
     param_combinations = [
@@ -274,8 +274,8 @@ def main():
     print(f"  Improvement: {worst['final_improvement']:.2f}%")
     
     # Save results
-    df.to_csv('optimization_results_ga.csv', index=False)
-    print("\n✓ Results saved to 'optimization_results_ga.csv'")
+    df.to_csv('optimization_results.csv', index=False)
+    print("\n✓ Results saved to 'optimization_results.csv'")
     
     # Create visualizations
     print("\nGenerating visualizations...")
