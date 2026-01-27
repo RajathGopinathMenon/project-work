@@ -1,5 +1,14 @@
 # Gold Collector Problem - Computational Intelligence Project
 
+project-work/
+├── Problem.py              # Problem class definition and baseline solution
+├── s337798.py             # Main solution file with solution() function
+├── base_requirements.txt  # Basic Python dependencies
+├── src/                   # Additional source code
+│   ├── GA_solver_A.py    # Genetic Algorithm solver implementation
+│   └── GA_solver.py      # Alternative solver implementation
+└── README.md             # This file
+
 ## Problem Description
 
 The Gold Collector problem is a variant of the Vehicle Routing Problem (VRP) where a vehicle must collect gold from multiple cities and return to a central depot. The challenge is to optimize the collection routes while considering the weight penalty of carrying gold.
@@ -107,18 +116,6 @@ The critical challenge was ensuring our evaluation matches the problem's baselin
 3. This ensures consistency with how the baseline is calculated
 
 ## Implementation Details
-
-### File Structure
-
-```
-.
-├── src/
-│   ├── problem.py          # Problem definition and baseline calculation
-│   ├── GA_solver_A.py      # Standard solver (≤100 cities)
-│   └── GA_solver.py        # Scalable solver (≥1000 cities)
-├── s337798.py              # Main script to run experiments
-└── README.md               # This file
-```
 
 ### Core Classes
 
