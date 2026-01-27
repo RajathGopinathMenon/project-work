@@ -1,7 +1,4 @@
 """
-Student Solution File
-Student ID: 337798
-
 This file contains the main solution() function that solves the
 Gold Collector problem using a Genetic Algorithm approach.
 
