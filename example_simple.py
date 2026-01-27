@@ -1,9 +1,9 @@
 """
 Simple example demonstrating the solution() function.
 """
-
 from Problem import Problem
 from s337798 import solution
+import matplotlib.pyplot as plt
 
 
 # Example 1: Small problem
@@ -32,3 +32,11 @@ for i, (city, gold) in enumerate(path2):
         break
     else:
         print(f"  {i}. ({city}, {gold:.1f}) ← Visit city {city}, collect {gold:.1f} gold")
+
+
+from Problem import Problem
+from s337798 import solution
+
+
+p.plot_solution(path, save_path='my_solution.png')
+plt.show()
