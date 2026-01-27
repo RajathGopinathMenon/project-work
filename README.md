@@ -1,5 +1,6 @@
 # Gold Collector Problem - Computational Intelligence Project
 
+```
 project-work/
 ├── Problem.py              # Problem class definition and baseline solution
 ├── s337798.py             # Main solution file with solution() function
@@ -8,6 +9,8 @@ project-work/
 │   ├── GA_solver_A.py    # Genetic Algorithm solver implementation
 │   └── GA_solver.py      # Alternative solver implementation
 └── README.md             # This file
+
+```
 
 ## Problem Description
 
