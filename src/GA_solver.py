@@ -12,8 +12,11 @@ class GeneticSolver:
         print(f"  Initializing Solver for {self.n} cities...")
         print(f"  Beta: {self.problem.beta}, Alpha: {self.problem.alpha}")
         
+        # CHANGE: Access _graph directly for better performance
+        self.graph = getattr(self.problem, '_graph', self.problem.graph)
+        
         # Gold values
-        self.gold_values = np.array([self.problem.graph.nodes[i]['gold'] for i in range(self.n)])
+        self.gold_values = np.array([self.graph.nodes[i]['gold'] for i in range(self.n)])
         self.customers = list(range(1, self.n))
         
         # GA parameters
@@ -45,8 +48,8 @@ class GeneticSolver:
     def get_cached_path_edges(self, u, v):
         """Lazy Dijkstra: Only compute shortest paths when the GA requests them."""
         try:
-            path = nx.dijkstra_path(self.problem.graph, u, v, weight='dist')
-            return [(path[k], path[k+1]) for k in range(len(path)-1)]
+            path = nx.dijkstra_path(self.graph, u, v, weight='dist')
+            return tuple([(path[k], path[k+1]) for k in range(len(path)-1)])
         except nx.NetworkXNoPath:
             return None
 
@@ -189,11 +192,12 @@ class GeneticSolver:
         if not self.state: return self.best_cost
         new_state = deepcopy(self.state)
         # Randomly move a city between trips
-        t1, t2 = random.sample(range(len(new_state)), 2)
-        if new_state[t1]:
-            city = new_state[t1].pop(random.randrange(len(new_state[t1])))
-            new_state[t2].insert(random.randint(0, len(new_state[t2])), city)
-            
+        if len(new_state) >= 2:
+            t1, t2 = random.sample(range(len(new_state)), 2)
+            if new_state[t1]:
+                city = new_state[t1].pop(random.randrange(len(new_state[t1])))
+                new_state[t2].insert(random.randint(0, len(new_state[t2])), city)
+        
         new_cost = self._evaluate(new_state)
         if new_cost < self.cost:
             self.state, self.cost = new_state, new_cost

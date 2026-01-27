@@ -14,6 +14,9 @@ class GeneticSolver:
         print(f"  Precomputing path structures...")
         import networkx as nx
         
+        # CHANGE: Access _graph directly for better performance
+        graph = getattr(self.problem, '_graph', self.problem.graph)
+        
         self.path_edges = {}
         for i in range(n):
             for j in range(n):
@@ -21,7 +24,7 @@ class GeneticSolver:
                     self.path_edges[(i, j)] = []
                 else:
                     try:
-                        path = nx.dijkstra_path(self.problem.graph, i, j, weight='dist')
+                        path = nx.dijkstra_path(graph, i, j, weight='dist')
                         edges = [(path[k], path[k+1]) for k in range(len(path)-1)]
                         self.path_edges[(i, j)] = edges
                     except nx.NetworkXNoPath:
@@ -29,8 +32,8 @@ class GeneticSolver:
         
         print(f"  ✓ Paths cached")
         
-        # Gold values
-        self.gold_values = np.array([self.problem.graph.nodes[i]['gold'] for i in range(n)])
+        # Gold values - CHANGE: Access _graph directly
+        self.gold_values = np.array([graph.nodes[i]['gold'] for i in range(n)])
         
         # Customers to visit (all non-depot cities)
         self.customers = list(range(1, n))
